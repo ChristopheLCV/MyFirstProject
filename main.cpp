@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Beautiful comment
 int main()
 {
     cout << "Hello world!" << endl;
