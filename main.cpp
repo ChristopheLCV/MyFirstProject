@@ -2,18 +2,58 @@
 
 using namespace std;
 
-int addition(int a, int b) {
-    return a + b;
-}
+class Person {
+private:
+    string firstName;
+    string lastName;
+    int age;
+    bool gender;
 
-int substraction(int a, int b) {
-    return a - b;
-}
+public:
+    // Constructeur
+    Person(string _firstName = "") : firstName(_firstName) {
+        cout << "Creating new Person" << endl;
+    }
 
-// Another beautiful comment
-// Beautiful comment
+    // Destructeur
+    ~Person() {
+        cout << "Destroying Person" << endl;
+    }
+
+    // Accesseur (getter)
+    string getFirstName() {
+        return firstName;
+    }
+
+    // Mutateur (setter)
+    void setFirstName(string _firstName) {
+        firstName = _firstName;
+    }
+
+    void sayName() {
+        if (firstName == "") {
+            cout << "Je n'ai pas de nom" << endl;
+        } else {
+            cout << "Je m'appelle " << firstName << endl;
+        }
+    }
+
+    void sayHello(Person* otherPerson) {
+        cout << firstName << " dit: Bonjour " << otherPerson->firstName << endl;
+    }
+};
+
+
 int main()
 {
-    cout << "Hello world!" << endl;
+    Person robert("Robert");
+    Person juliette("Juliette");
+    Person anonyme;
+
+    robert.sayName();
+    robert.sayHello(&juliette);
+
+    anonyme.sayName();
+
     return 0;
 }
